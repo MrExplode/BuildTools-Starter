@@ -136,6 +136,20 @@ public class MainFrame extends JFrame {
 		lblGit.setBounds(54, 211, 57, 14);
 		panel.add(lblGit);
 		
+		JLabel lblBuildtoolsLocation = new JLabel("BuildTools location:");
+		lblBuildtoolsLocation.setBounds(20, 183, 91, 14);
+		panel.add(lblBuildtoolsLocation);
+		
+		JLabel label = new JLabel("");
+		Image img = (new ImageIcon(MainFrame.class.getResource("/me/sunstorm/starter/icon.png"))).getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+		label.setIcon(new ImageIcon(img));
+		label.setBounds(10, 93, 100, 100);
+		panel.add(label);
+		
+		JLabel lblAttentionUse = new JLabel("ATTENTION: use '/' in file path instead of '\\'");
+		lblAttentionUse.setBounds(10, 53, 215, 14);
+		panel.add(lblAttentionUse);
+		
 		gitLoc = new JTextField();
 		gitLoc.setToolTipText("Points at Git/bin folder");
 		gitLoc.setBounds(113, 208, 112, 20);
@@ -161,10 +175,6 @@ public class MainFrame extends JFrame {
 				e1.printStackTrace();
 			}
 		}
-		
-		JLabel lblBuildtoolsLocation = new JLabel("BuildTools location:");
-		lblBuildtoolsLocation.setBounds(20, 183, 91, 14);
-		panel.add(lblBuildtoolsLocation);
 		
 		JButton btnStart = new JButton("Start");
 		btnStart.addActionListener(new ActionListener() {
@@ -242,7 +252,7 @@ public class MainFrame extends JFrame {
 					launcher.getParentFile().mkdirs();
 					launcher.createNewFile();
 					BufferedWriter writer2 = new BufferedWriter(new FileWriter(launcher));
-					writer2.write(bashDir + " --login -i -c \"java -jar " + buildDir + " --rev " + version + " " + arguments.toString().trim() + "\"" + "\n");
+					writer2.write(bashDir + " --login -i -c \"java -jar " + buildDir + " --rev " + version + " " + arguments.toString().trim() + "\n");
 					writer2.write("pause");
 					writer2.flush();
 					writer2.close();
@@ -266,16 +276,6 @@ public class MainFrame extends JFrame {
 		});
 		btnStart.setBounds(113, 118, 112, 39);
 		panel.add(btnStart);
-		
-		JLabel label = new JLabel("");
-		Image img = (new ImageIcon(MainFrame.class.getResource("/me/sunstorm/starter/icon.png"))).getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-		label.setIcon(new ImageIcon(img));
-		label.setBounds(10, 93, 100, 100);
-		panel.add(label);
-		
-		JLabel lblAttentionUse = new JLabel("ATTENTION: use '/' in file path instead of '\\'");
-		lblAttentionUse.setBounds(10, 53, 215, 14);
-		panel.add(lblAttentionUse);
 		
 	}
 }
