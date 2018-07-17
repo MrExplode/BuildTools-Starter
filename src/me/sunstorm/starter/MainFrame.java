@@ -233,8 +233,8 @@ public class MainFrame extends JFrame {
 				}
 				System.out.println("exited the saving scope");
 				
-				bashDir = "\"" + gitLoc.getText() + "\\bash.exe\"";
-				buildDir = "\"" + btLoc.getText() + "\\BuildTools.jar\"";
+				bashDir = "\"" + gitLoc.getText() + "/bash.exe\"";
+				buildDir = "\"" + btLoc.getText() + "/BuildTools.jar\"";
 				version = txtLastest.getText();
 				
 				File launcher = new File(System.getProperty("user.home") + File.separator + "AppData" + File.separator + "Roaming" + File.separator + "Build" + File.separator + "starter.bat");
@@ -242,7 +242,7 @@ public class MainFrame extends JFrame {
 					launcher.getParentFile().mkdirs();
 					launcher.createNewFile();
 					BufferedWriter writer2 = new BufferedWriter(new FileWriter(launcher));
-					writer2.write(bashDir + " --login -i -c \"java -jar " + buildDir + " --rev " + version + " " + arguments.toString() + "\"" + "\n");
+					writer2.write(bashDir + " --login -i -c \"java -jar " + buildDir + " --rev " + version + " " + arguments.toString().trim() + "\"" + "\n");
 					writer2.write("pause");
 					writer2.flush();
 					writer2.close();
@@ -272,6 +272,10 @@ public class MainFrame extends JFrame {
 		label.setIcon(new ImageIcon(img));
 		label.setBounds(10, 93, 100, 100);
 		panel.add(label);
+		
+		JLabel lblAttentionUse = new JLabel("ATTENTION: use '/' in file path instead of '\\'");
+		lblAttentionUse.setBounds(10, 53, 215, 14);
+		panel.add(lblAttentionUse);
 		
 	}
 }
