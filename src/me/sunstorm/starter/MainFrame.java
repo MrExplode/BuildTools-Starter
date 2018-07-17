@@ -102,7 +102,7 @@ public class MainFrame extends JFrame {
 		
 		txtLastest = new JTextField();
 		txtLastest.setToolTipText("The version being compiled.");
-		txtLastest.setText("lastest");
+		txtLastest.setText("latest");
 		txtLastest.setBounds(113, 82, 112, 20);
 		panel.add(txtLastest);
 		txtLastest.setColumns(10);
